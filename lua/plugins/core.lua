@@ -12,8 +12,11 @@ return {
     opts = function(_, opts)
       local nls = require("null-ls")
       opts.sources = vim.list_extend(opts.sources, {
-        nls.builtins.formatting.black, -- python formatter
-        nls.builtins.formatting.isort, -- sort python imports
+        nls.builtins.formatting.black,
+        nls.builtins.formatting.isort.with({
+          extra_args = { "--multi-line", "3", "--profile", "black" },
+        }),
+        nls.builtins.formatting.clang_format,
       })
     end,
   },
@@ -40,6 +43,10 @@ return {
       ---@type lspconfig.options
       servers = {
         pyright = {},
+      },
+      autoformat = false,
+      diagnostics = {
+        virtual_text = false,
       },
     },
   },
