@@ -12,7 +12,7 @@ return {
       return vim.env.TMUX ~= nil
     end,
   },
-  -- override nvim-cmp and add cmp-emoji
+  -- add tmux as nvim-cmp completion source
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "andersevenrud/cmp-tmux" },

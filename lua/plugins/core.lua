@@ -1,4 +1,7 @@
 return {
+  -- add tpope plugins
+  { "tpope/vim-sleuth" },
+  { "tpope/vim-abolish" },
   -- set colorscheme
   {
     "LazyVim/LazyVim",
@@ -32,6 +35,22 @@ return {
         highlight = "sh",
         replace = "sr",
         update_n_lines = "sn",
+      },
+    },
+  },
+  -- lua/plugins/nvim-treesitter.lua
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      { "JoosepAlviste/nvim-ts-context-commentstring", lazy = false },
+    },
+    opts = {
+      context_commentstring = {
+        enable = true,
+        config = {
+          c = "// %s",
+          cpp = "// %s",
+        },
       },
     },
   },
@@ -107,6 +126,18 @@ return {
           end
         end, { "i", "s" }),
       })
+
+      opts.enabled = function()
+        -- disable completion in comments
+        local context = require("cmp.config.context")
+        -- keep command mode completion enabled when cursor is in a comment
+        if vim.api.nvim_get_mode().mode == "c" then
+          return true
+        else
+          return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
+        end
+      end
+
     end,
   },
   -- disable mini.pairs
