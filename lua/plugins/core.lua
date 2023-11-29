@@ -11,15 +11,15 @@ return {
   },
   -- add null-ls formatters
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
       opts.sources = vim.list_extend(opts.sources, {
-        nls.builtins.formatting.black,
-        nls.builtins.formatting.isort.with({
-          extra_args = { "--multi-line", "3", "--profile", "black" },
-        }),
-        nls.builtins.formatting.clang_format,
+        -- nls.builtins.formatting.black,
+        -- nls.builtins.formatting.isort.with({
+        --   extra_args = { "--multi-line", "3", "--profile", "black" },
+        -- }),
+        -- nls.builtins.formatting.clang_format,
       })
     end,
   },
@@ -38,22 +38,6 @@ return {
       },
     },
   },
-  -- lua/plugins/nvim-treesitter.lua
-  {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      { "JoosepAlviste/nvim-ts-context-commentstring", lazy = false },
-    },
-    opts = {
-      context_commentstring = {
-        enable = true,
-        config = {
-          c = "// %s",
-          cpp = "// %s",
-        },
-      },
-    },
-  },
   -- add default servers to lspconfig (automatically installed with mason)
   {
     "neovim/nvim-lspconfig",
@@ -63,7 +47,6 @@ return {
       servers = {
         pyright = {},
       },
-      autoformat = false,
       diagnostics = {
         virtual_text = false,
       },

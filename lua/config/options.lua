@@ -9,3 +9,6 @@ vim.api.nvim_create_autocmd("FileType", {
     }
   end
 })
+
+-- Disable LazyVim auto format
+vim.g.autoformat = false
