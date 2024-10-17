@@ -12,3 +12,4 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Disable LazyVim auto format
 vim.g.autoformat = false
+-- vim.g.nord_cusor_line_number_background = 1

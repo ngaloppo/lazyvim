@@ -2,11 +2,14 @@ return {
   -- add tpope plugins
   { "tpope/vim-sleuth" },
   { "tpope/vim-abolish" },
+  { "arcticicestudio/nord-vim" },
+
   -- set colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-mocha",
+      -- colorscheme = "catppuccin-mocha",
+      colorscheme = "nord",
     },
   },
   -- add null-ls formatters
