@@ -12,20 +12,6 @@ return {
       colorscheme = "nord",
     },
   },
-  -- add null-ls formatters
-  {
-    "nvimtools/none-ls.nvim",
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      opts.sources = vim.list_extend(opts.sources, {
-        -- nls.builtins.formatting.black,
-        -- nls.builtins.formatting.isort.with({
-        --   extra_args = { "--multi-line", "3", "--profile", "black" },
-        -- }),
-        -- nls.builtins.formatting.clang_format,
-      })
-    end,
-  },
   -- customize surround keymappings
   {
     "echasnovski/mini.surround",
@@ -48,7 +34,15 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        pyright = {},
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = "standard"
+              }
+            }
+          }
+        },
       },
       diagnostics = {
         virtual_text = false,
