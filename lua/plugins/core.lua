@@ -34,11 +34,17 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        pyright = {
+        basedpyright = {
           settings = {
-            python = {
+            basedpyright = {
               analysis = {
-                typeCheckingMode = "standard"
+                typeCheckingMode = "standard",
+                inlayHints = {
+                  variableTypes = false,
+                  callArgumentNames = false,
+                  functionReturnTypes = false,
+                  genericTypes = false,
+                }
               }
             }
           }
