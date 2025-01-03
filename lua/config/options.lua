@@ -17,3 +17,13 @@ vim.g.autoformat = false
 -- LSP Server to use for Python.
 -- Set to "basedpyright" to use basedpyright instead of pyright.
 vim.g.lazyvim_python_lsp = "basedpyright"
+
+vim.diagnostic.config({
+  virtual_text = {
+    source = true,  -- Or "if_many"
+  },
+  float = {
+    source = true,  -- Or "if_many"
+  },
+})
+
