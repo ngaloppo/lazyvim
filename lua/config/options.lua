@@ -10,6 +10,9 @@
 --   end
 -- })
 
+-- Disable snacks animations
+vim.g.snacks_animate = false
+
 -- Disable LazyVim auto format
 vim.g.autoformat = false
 -- vim.g.nord_cusor_line_number_background = 1
